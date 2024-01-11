@@ -1,0 +1,38 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.ngx-tooltip {
+  animation: fade-in 0.3s linear;
+  background-color: var(--tooltip-background);
+  border: 1px solid var(--tooltip-border);
+  border-radius: 3px;
+  filter: drop-shadow(0 3px 6px var(--tooltip-boxshadow-color));
+  font-size: 1rem;
+  max-width: 350px;
+  padding: 0.5rem 1rem;
+  position: relative;
+  z-index: 9999;
+
+  &__arrow {
+    height: 16px;
+    position: absolute;
+    width: 16px;
+  }
+
+  .arrow::before {
+    border-style: solid;
+    content: "";
+    position: absolute;
+  }
+}

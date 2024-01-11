@@ -1,0 +1,133 @@
+.cdk-overlay-pane {
+  &.top {
+    margin-bottom: 0.5rem;
+
+    .ngx-tooltip .arrow {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .ngx-tooltip .arrow::before {
+      border-color: transparent;
+      border-style: solid;
+      border-top-color: var(--tooltip-border);
+      border-width: 8px 8px 0;
+      bottom: -8px;
+      content: "";
+      left: 0;
+      transform-origin: center top;
+    }
+
+    .ngx-tooltip .arrow::after {
+      border-color: transparent;
+      border-style: solid;
+      border-top-color: var(--tooltip-background);
+      border-width: 8px 8px 0;
+      bottom: -6px;
+      content: "";
+      left: 0;
+      position: absolute;
+      transform-origin: center top;
+      z-index: 1;
+    }
+  }
+
+  &.right {
+    margin-left: 1rem;
+
+    .ngx-tooltip .arrow {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .ngx-tooltip .arrow::before {
+      border-color: transparent;
+      border-right-color: var(--tooltip-border);
+      border-style: solid;
+      border-width: 8px 8px 8px 0;
+      content: "";
+      left: -8px;
+      transform-origin: center right;
+    }
+
+    .ngx-tooltip .arrow::after {
+      border-color: transparent;
+      border-right-color: var(--tooltip-background);
+      border-style: solid;
+      border-width: 8px 8px 8px 0;
+      content: "";
+      left: -6px;
+      position: absolute;
+      transform-origin: center right;
+      z-index: 1;
+    }
+  }
+
+  &.left {
+    margin-right: 1rem;
+
+    .ngx-tooltip .arrow {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .ngx-tooltip .arrow::before {
+      border-color: transparent;
+      border-left-color: var(--tooltip-border);
+      border-style: solid;
+      border-width: 8px 0 8px 8px;
+      content: "";
+      right: -8px;
+      transform-origin: center left;
+    }
+
+    .ngx-tooltip .arrow::after {
+      border-color: transparent;
+      border-left-color: var(--tooltip-background);
+      border-style: solid;
+      border-width: 8px 0 8px 8px;
+      content: "";
+      position: absolute;
+      right: -6px;
+      transform-origin: center left;
+      z-index: 1;
+    }
+  }
+
+  &.bottom {
+    margin-top: 0.5rem;
+
+    .ngx-tooltip .arrow {
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .ngx-tooltip .arrow::before {
+      border-color: transparent;
+      border-bottom-color: var(--tooltip-border);
+      border-style: solid;
+      border-width: 0 8px 8px;
+      content: "";
+      left: 0;
+      top: -8px;
+      transform-origin: center bottom;
+    }
+
+    .ngx-tooltip .arrow::after {
+      border-color: transparent;
+      border-bottom-color: var(--tooltip-background);
+      border-style: solid;
+      border-width: 0 8px 8px;
+      content: "";
+      left: 0;
+      position: absolute;
+      top: -6px;
+      transform-origin: center bottom;
+      z-index: 1;
+    }
+  }
+}

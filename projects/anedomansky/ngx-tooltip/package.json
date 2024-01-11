@@ -1,0 +1,15 @@
+{
+  "name": "@anedomansky/ngx-tooltip",
+  "version": "0.0.1",
+  "description": "An Angular Library",
+  "scripts": {
+    "build": "ng build @anedomansky/ngx-tooltip",
+    "prepublishOnly": "npm run build"
+  },
+  "exports": {
+    ".": {
+      "sass": "./styles/index.scss"
+    }
+  },
+  "sideEffects": false
+}
