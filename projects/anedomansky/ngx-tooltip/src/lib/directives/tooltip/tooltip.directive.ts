@@ -17,11 +17,11 @@ import {
   OnInit,
   Renderer2,
   SecurityContext,
-  SimpleChanges,
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { NgxTooltipComponent } from '../../components/tooltip/tooltip.component';
+import { ComponentChanges } from '../../models/changes.model';
 import { IdHelperService } from '../../services/id-helper.service';
 
 export type Placement = 'top' | 'right' | 'bottom' | 'left';
@@ -181,20 +181,20 @@ export class NgxTooltipDirective implements OnChanges, OnInit, OnDestroy {
     this.initOverlay();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    const { placement, insureTooltip } = changes;
+  ngOnChanges(changes: ComponentChanges<NgxTooltipDirective>): void {
+    const { placement, ngxTooltip } = changes;
 
     if (placement?.currentValue) {
       this.overlayRef?.dispose();
       this.initOverlay();
     }
 
-    if (insureTooltip?.currentValue) {
+    if (ngxTooltip?.currentValue) {
       this.tooltipRef?.setInput(
         'tooltip',
         this.sanitizer.sanitize(
           SecurityContext.HTML,
-          insureTooltip.currentValue,
+          ngxTooltip.currentValue,
         ) ?? '',
       );
     }

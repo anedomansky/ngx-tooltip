@@ -20,4 +20,34 @@ describe('NgxTooltipComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show styleClass', () => {
+    fixture.componentRef.setInput('styleClass', 'test');
+    fixture.detectChanges();
+
+    const container = element.getElementsByClassName('ngx-tooltip')[0];
+
+    expect(container).toBeTruthy();
+    expect(container.classList.contains('test')).toBeTruthy();
+  });
+
+  it('should show id', () => {
+    fixture.componentRef.setInput('id', 'test');
+    fixture.detectChanges();
+
+    const span = element.querySelector('span');
+
+    expect(span?.id).toBe('test');
+  });
+
+  it('should show tooltip', () => {
+    fixture.componentRef.setInput('tooltip', 'test');
+    fixture.detectChanges();
+
+    const span = element.querySelector('span');
+
+    expect(span).toBeTruthy();
+    expect(span?.childNodes.length).toBe(1);
+    expect(span?.innerHTML).toBe('test');
+  });
 });

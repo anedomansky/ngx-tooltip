@@ -7,9 +7,32 @@
     align-items: center;
   "
 >
-  <span ngxTooltip="I am a tooltip.">Hover me!</span>
-  <span ngxTooltip="I am a tooltip." placement="right">Hover me!</span>
-  <span ngxTooltip="I am a tooltip." placement="bottom">Hover me!</span>
-  <span ngxTooltip="I am a tooltip." placement="left">Hover me!</span>
+  <button type="button" (click)="updateTooltip()" [ngxTooltip]="tooltip">
+    Hover me!
+  </button>
+  <button
+    type="button"
+    (click)="updateTooltip()"
+    [ngxTooltip]="tooltip"
+    placement="right"
+  >
+    Hover me!
+  </button>
+  <button
+    type="button"
+    (click)="updateTooltip()"
+    [ngxTooltip]="tooltip"
+    placement="bottom"
+  >
+    Hover me!
+  </button>
+  <button
+    type="button"
+    (click)="updateTooltip()"
+    [ngxTooltip]="tooltip"
+    placement="left"
+  >
+    Hover me!
+  </button>
 </div>
 <div style="height: 2000px"></div>

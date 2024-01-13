@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [NgxTooltipDirective],
 })
-export class AppComponent {}
+export class AppComponent {
+  tooltip = 'Test-Tooltip';
+
+  updateTooltip(): void {
+    this.tooltip = 'test';
+  }
+}
