@@ -31,7 +31,7 @@ const bottom: ConnectedPosition = {
   originY: 'bottom',
   overlayX: 'center',
   overlayY: 'top',
-  panelClass: 'bottom',
+  panelClass: 'bottom-ngx-tooltip',
 };
 
 const left: ConnectedPosition = {
@@ -39,7 +39,7 @@ const left: ConnectedPosition = {
   originY: 'center',
   overlayX: 'end',
   overlayY: 'center',
-  panelClass: 'left',
+  panelClass: 'left-ngx-tooltip',
 };
 
 const right: ConnectedPosition = {
@@ -47,7 +47,7 @@ const right: ConnectedPosition = {
   originY: 'center',
   overlayX: 'start',
   overlayY: 'center',
-  panelClass: 'right',
+  panelClass: 'right-ngx-tooltip',
 };
 
 const top: ConnectedPosition = {
@@ -55,7 +55,7 @@ const top: ConnectedPosition = {
   originY: 'top',
   overlayX: 'center',
   overlayY: 'bottom',
-  panelClass: 'top',
+  panelClass: 'top-ngx-tooltip',
 };
 
 const prefersBottom: ConnectedPosition[] = [bottom, top, left, right];
@@ -171,7 +171,10 @@ export class NgxTooltipDirective implements OnChanges, OnInit, OnDestroy {
       .flexibleConnectedTo(this.elementRef)
       .withPositions(positions);
 
-    this.overlayRef = this.overlay.create({ positionStrategy });
+    this.overlayRef = this.overlay.create({
+      positionStrategy,
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
+    });
   }
 
   ngOnInit(): void {

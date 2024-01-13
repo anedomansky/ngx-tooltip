@@ -3,8 +3,8 @@
     opacity: 0;
   }
 
-  75% {
-    opacity: 0;
+  50% {
+    opacity: 0.5;
   }
 
   100% {
@@ -18,16 +18,17 @@
   border: 1px solid var(--tooltip-border);
   border-radius: 3px;
   filter: drop-shadow(0 3px 6px var(--tooltip-boxshadow-color));
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
-  max-width: 350px;
+  max-inline-size: 22.5rem;
   padding: 0.5rem 1rem;
   position: relative;
   z-index: 9999;
 
   &__arrow {
-    height: 16px;
+    block-size: 1rem;
+    inline-size: 1rem;
     position: absolute;
-    width: 16px;
   }
 
   .arrow::before {
