@@ -133,8 +133,10 @@ export class NgxTooltipDirective implements OnChanges, OnInit, OnDestroy {
 
       this.tooltipRef.instance.id = this.tooltipId;
       this.tooltipRef.instance.styleClass = this.styleClass;
-      this.tooltipRef.instance.tooltip =
-        this.sanitizer.sanitize(SecurityContext.HTML, this.ngxTooltip) ?? '';
+      this.tooltipRef.instance.tooltip = this.sanitizer.sanitize(
+        SecurityContext.HTML,
+        this.ngxTooltip,
+      );
     }
   }
 
@@ -192,10 +194,7 @@ export class NgxTooltipDirective implements OnChanges, OnInit, OnDestroy {
     if (ngxTooltip?.currentValue) {
       this.tooltipRef?.setInput(
         'tooltip',
-        this.sanitizer.sanitize(
-          SecurityContext.HTML,
-          ngxTooltip.currentValue,
-        ) ?? '',
+        this.sanitizer.sanitize(SecurityContext.HTML, ngxTooltip.currentValue),
       );
     }
   }
@@ -204,8 +203,3 @@ export class NgxTooltipDirective implements OnChanges, OnInit, OnDestroy {
     this.overlayRef?.dispose();
   }
 }
-
-// TODO: test behavior while scrolling
-// TODO: test correct placement
-// TODO: check font-family
-// TODO: introduce CSS custom properties for all values?

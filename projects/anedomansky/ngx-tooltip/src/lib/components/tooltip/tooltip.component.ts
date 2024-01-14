@@ -24,5 +24,5 @@ export class NgxTooltipComponent {
    * Content to show inside the tooltip.
    */
   @Input()
-  tooltip?: string;
+  tooltip: string | null = null;
 }

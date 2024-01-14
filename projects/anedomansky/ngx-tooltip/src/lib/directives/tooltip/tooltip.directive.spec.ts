@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxTooltipDirective } from './tooltip.directive';
+import { NgxTooltipDirective, Placement } from './tooltip.directive';
 
 @Component({
   template: `<button
@@ -9,7 +9,7 @@ import { NgxTooltipDirective } from './tooltip.directive';
     class="test-button"
     (click)="updateTooltip()"
     [ngxTooltip]="tooltip"
-    placement="right"
+    [placement]="placement"
     [styleClass]="styleClass"
     tooltipId="test-id"
   >
@@ -24,6 +24,9 @@ class TestComponent {
 
   @Input()
   styleClass = 'test-class';
+
+  @Input()
+  placement: Placement = 'right';
 
   updateTooltip(): void {
     this.tooltip = 'test';
@@ -81,5 +84,59 @@ describe('NgxTooltipDirective', () => {
     fixture.detectChanges();
 
     expect(document.getElementById('test-id')?.innerHTML).toBe('test');
+  });
+
+  it('should not show tooltip if no tooltip content is supplied', () => {
+    component.tooltip = '';
+    fixture.detectChanges();
+
+    const button = element.getElementsByClassName(
+      'test-button',
+    )[0] as HTMLButtonElement;
+
+    button.dispatchEvent(new Event('mouseenter'));
+
+    expect(document.getElementById('test-id')).toBeFalsy();
+  });
+
+  it('should render top tooltip', () => {
+    component.placement = 'top';
+    fixture.detectChanges();
+
+    const button = element.getElementsByClassName(
+      'test-button',
+    )[0] as HTMLButtonElement;
+
+    button.dispatchEvent(new Event('mouseenter'));
+
+    expect(document.getElementsByClassName('top-ngx-tooltip')[0]).toBeTruthy();
+  });
+
+  it('should render bottom tooltip', () => {
+    component.placement = 'bottom';
+    fixture.detectChanges();
+
+    const button = element.getElementsByClassName(
+      'test-button',
+    )[0] as HTMLButtonElement;
+
+    button.dispatchEvent(new Event('mouseenter'));
+
+    expect(
+      document.getElementsByClassName('bottom-ngx-tooltip')[0],
+    ).toBeTruthy();
+  });
+
+  it('should render left tooltip', () => {
+    component.placement = 'left';
+    fixture.detectChanges();
+
+    const button = element.getElementsByClassName(
+      'test-button',
+    )[0] as HTMLButtonElement;
+
+    button.dispatchEvent(new Event('mouseenter'));
+
+    expect(document.getElementsByClassName('left-ngx-tooltip')[0]).toBeTruthy();
   });
 });
