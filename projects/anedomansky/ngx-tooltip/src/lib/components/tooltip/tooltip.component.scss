@@ -14,10 +14,10 @@
 
 .ngx-tooltip {
   animation: fade-in 0.3s linear;
-  background-color: var(--tooltip-background);
-  border: 1px solid var(--tooltip-border);
+  background-color: #f5f5f5;
+  border: 1px solid #666;
   border-radius: 3px;
-  filter: drop-shadow(0 3px 6px var(--tooltip-boxshadow-color));
+  filter: drop-shadow(0 3px 6px #777);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   max-inline-size: 22.5rem;

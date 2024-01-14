@@ -1,7 +1,30 @@
 {
   "name": "@anedomansky/ngx-tooltip",
   "version": "0.0.1",
-  "description": "An Angular Library",
+  "description": "An Angular directive for displaying tooltips.",
+  "author": "Alexander Nedomansky <nedomanskya@outlook.com>",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "tooltip",
+    "overlay"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://git@github.com/anedomansky/ngx-tooltip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anedomansky/ngx-tooltip/issues"
+  },
+  "homepage": "https://github.com/anedomansky/ngx-tooltip#readme",
+  "peerDependencies": {
+    "@angular/cdk": "~16.2.12",
+    "@angular/common": "^16.2.12",
+    "@angular/core": "^16.2.12"
+  },
+  "dependencies": {
+    "tslib": "^2.6.2"
+  },
   "scripts": {
     "build": "ng build @anedomansky/ngx-tooltip",
     "prepublishOnly": "npm run build"
