@@ -1,6 +1,6 @@
 {
   "name": "@anedomansky/ngx-tooltip",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "An Angular directive for displaying tooltips.",
   "author": "Alexander Nedomansky <nedomanskya@outlook.com>",
   "license": "MIT",
